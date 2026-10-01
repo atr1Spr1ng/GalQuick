@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>剧情快速阅读</title>
+  <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">SR</span>
+      <div>
+        <div id="game-title" class="game-title">正在读取剧情……</div>
+        <div id="reader-status" class="game-meta">准备小说阅读模式</div>
+      </div>
+    </div>
+    <nav class="toolbar" aria-label="阅读工具">
+      <button id="game-toggle" class="quiet-button overlay-only">切回游戏</button>
+      <button id="choices-button" class="quiet-button">路线 <span id="choice-count">0</span></button>
+      <button id="scenes-button" class="quiet-button">Scene <span id="scene-count">0</span></button>
+      <button id="restart-button" class="quiet-button">从头阅读</button>
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="搜索台词或角色" autocomplete="off">
+      </label>
+    </nav>
+  </header>
+
+  <div id="progress" class="progress" aria-hidden="true"></div>
+
+  <main class="reader-shell">
+    <section class="reader-intro" aria-labelledby="story-heading">
+      <div class="eyebrow">FAST STORY MODE</div>
+      <h1 id="story-heading">像小说一样读完 Scene 之间的剧情</h1>
+      <p>沿所选路线连续阅读；遇到选择时决定分支，遇到 Scene 时再交给原版游戏显示画面、声音和演出。</p>
+      <div id="summary" class="summary"></div>
+    </section>
+
+    <section id="search-results" class="search-results" hidden></section>
+    <article id="novel" class="novel" aria-live="polite"></article>
+  </main>
+
+  <aside id="navigator" class="navigator" aria-hidden="true">
+    <div class="navigator-panel">
+      <div class="navigator-head">
+        <div>
+          <div class="eyebrow">QUICK NAVIGATION</div>
+          <h2 id="navigator-title">快速导航</h2>
+        </div>
+        <button id="navigator-close" class="icon-button" aria-label="关闭">×</button>
+      </div>
+      <div id="navigator-list" class="navigator-list"></div>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <section id="compact-bar" class="compact-bar" aria-label="Scene 播放状态">
+    <span class="compact-mark">SR</span>
+    <span class="compact-copy">
+      <strong id="compact-title">原版 Scene 播放中</strong>
+      <small>游戏保持运行；看完后返回小说</small>
+    </span>
+    <button id="compact-return" class="compact-return">看完，返回阅读</button>
+  </section>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

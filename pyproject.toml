@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "h-galgame"
+version = "0.1.0"
+description = "Local visual novel reading and subtitle toolkit (experimental)"
+requires-python = ">=3.11"
+
+[project.scripts]
+hgal = "hgalgame.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"hgalgame.frontend" = ["assets/*.html", "assets/*.css", "assets/*.js"]
